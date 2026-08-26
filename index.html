@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>¿Rodá te contrataría?</title>
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@500;600;700;800;900&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="app">
+
+  <!-- PROGRESS BAR (solo visible durante la entrevista) -->
+  <div class="progress-track" id="progressTrack" hidden>
+    <div class="progress-fill" id="progressFill"></div>
+  </div>
+
+  <main class="stage" id="stage">
+
+    <!-- PANTALLA 1 — INICIO -->
+    <section class="screen screen--start is-active" id="screen-start" data-screen="start">
+
+      <div class="start-content">
+        <img class="logo" src="assets/logotipo beige.png" alt="Logotipo">
+        <span class="eyebrow">EN RODÁ, VOS IMPORTÁS</span>
+        <h1 class="title-hero">¿TE IMAGINÁS <br> FORMANDO PARTE <br> DE RODÁ?</h1>
+        <p class="subtitle">Hoy podés descubrirlo.</p>
+        <p class="body-text">
+          Respondé algunas preguntas sobre cómo pensás, cómo resolvés problemas
+          y cómo trabajarías en equipo. Al final, nuestra IA analizará toda tu entrevista.
+        </p>
+        <p class="fine-print">Tu primer día empieza ahora.</p>
+      </div>
+
+      <button class="btn btn--primary btn--full" id="btnStart">EMPEZAR</button>
+    </section>
+
+    <!-- PANTALLA 2 — NOMBRE -->
+    <section class="screen screen--name" id="screen-name" data-screen="name">
+      <div class="name-content">
+        <span class="eyebrow">ANTES DE ARRANCAR</span>
+        <h2 class="title-question">¿Cómo te llamás?</h2>
+        <input
+          type="text"
+          id="inputName"
+          class="text-input"
+          placeholder="Escribí tu nombre"
+          autocomplete="off"
+          maxlength="40"
+        >
+        <p class="input-error" id="nameError" hidden>Escribí tu nombre para continuar.</p>
+      </div>
+      <button class="btn btn--primary btn--full" id="btnStartInterview">COMENZAR ENTREVISTA</button>
+    </section>
+
+    <!-- PANTALLA 3 — ENTREVISTA -->
+    <section class="screen screen--interview" id="screen-interview" data-screen="interview">
+      <header class="interview-header">
+        <span class="interview-label">EN RODÁ, VOS IMPORTÁS</span>
+        <span class="interview-counter" id="questionCounter">Pregunta 1 de 7</span>
+      </header>
+
+      <div class="chat-log" id="chatLog"></div>
+
+      <div class="answer-dock">
+        <textarea
+          id="inputAnswer"
+          class="textarea-input"
+          placeholder="Escribí tu respuesta..."
+          rows="3"
+        ></textarea>
+        <p class="input-error" id="answerError" hidden>Escribí una respuesta para continuar.</p>
+        <button class="btn btn--primary btn--full" id="btnContinue">CONTINUAR</button>
+      </div>
+    </section>
+
+    <!-- PANTALLA 4 — ANÁLISIS -->
+    <section class="screen screen--analysis" id="screen-analysis" data-screen="analysis">
+      <div class="analysis-content">
+        <div class="loader" aria-hidden="true">
+          <span></span><span></span><span></span>
+        </div>
+        <h2 class="title-question">Analizando tu entrevista...</h2>
+        <p class="analysis-message" id="analysisMessage">Analizando tus respuestas...</p>
+      </div>
+    </section>
+
+    <!-- PANTALLA 5 — ERROR -->
+    <section class="screen screen--error" id="screen-error" data-screen="error">
+      <div class="error-content">
+        <span class="error-icon" aria-hidden="true">⚠️</span>
+        <h2 class="title-question">Ups... tuvimos un problema analizando tu entrevista.</h2>
+        <p class="body-text">Guardamos tus respuestas. Podés intentarlo nuevamente.</p>
+      </div>
+      <button class="btn btn--primary btn--full" id="btnRetry">REINTENTAR</button>
+    </section>
+
+    <!-- PANTALLA 6 — RESULTADO -->
+    <section class="screen screen--result" id="screen-result" data-screen="result">
+      <div class="result-content">
+        <span class="eyebrow">TU RESULTADO</span>
+        <h2 class="title-question">¿RODÁ TE CONTRATARÍA?</h2>
+
+        <div class="result-card">
+          <span class="result-card__tag">🤖 Devolución de nuestra IA</span>
+          <p class="result-card__text" id="resultText"></p>
+        </div>
+
+        <p class="share-prompt">¿Te gustó tu resultado?</p>
+      </div>
+
+      <div class="result-actions">
+        <button class="btn btn--secondary btn--full" id="btnShare">COMPARTIR</button>
+        <button class="btn btn--ghost btn--full" id="btnRestart">VOLVER A INTENTAR</button>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
