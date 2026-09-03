@@ -1,4 +1,4 @@
-const MAGIC_LOOPS_API_URL = "https://magicloops.dev/api/loop/bb5e450d-b63a-4d19-afc4-42deb1ce1ebd/run";
+const MAGIC_LOOPS_API_URL = "https://magicloops.dev/api/loop/efe3d8b2-9478-4789-99b2-fd75867ca5d4/run";
 
 /* ----------------------------------------------------------
    PREGUNTAS DE LA ENTREVISTA (fijas, definidas en el código)
